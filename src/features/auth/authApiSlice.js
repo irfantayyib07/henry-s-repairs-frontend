@@ -21,7 +21,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
      await queryFulfilled
      //console.log(data)
      dispatch(logOut())
-     dispatch(apiSlice.util.resetApiState())
+     dispatch(apiSlice.util.resetApiState()) // unsubscribe and reset redux states and query results
     } catch (err) {
      console.log(err)
     }
