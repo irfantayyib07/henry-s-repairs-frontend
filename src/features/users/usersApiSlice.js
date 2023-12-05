@@ -13,7 +13,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
   getUsers: builder.query({
    query: () => '/users',
    validateStatus: (response, result) => {
-    return response.status === 200 && !result.isError
+    return response.status === 200 && !result.isError // check if the response is 200 and there is no error
    },
    keepUnusedDataFor: 5,
    transformResponse: responseData => {
