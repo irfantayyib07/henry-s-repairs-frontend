@@ -8,7 +8,7 @@ const NotesList = () => {
   isSuccess,
   isError,
   error
- } = useGetNotesQuery('notesList', {
+ } = useGetNotesQuery('notesList', { // notesList is a label which is visible in redux dev tools subscriptions
   pollingInterval: 15000,
   refetchOnFocus: true,
   refetchOnMountOrArgChange: true

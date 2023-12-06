@@ -32,7 +32,7 @@ const PersistLogin = () => {
      //const response = 
      await refresh()
      //const { accessToken } = response.data
-     setTrueSuccess(true)
+     setTrueSuccess(true) // using this because isSuccess from rtk query does not help here
     }
     catch (err) {
      console.error(err)

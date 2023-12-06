@@ -9,7 +9,7 @@ const UsersList = () => {
   isSuccess,
   isError,
   error
- } = useGetUsersQuery('usersList', {
+ } = useGetUsersQuery('usersList', { // usersList is a label which is visible in redux dev tools subscriptions
   pollingInterval: 60000,
   refetchOnFocus: true,
   refetchOnMountOrArgChange: true

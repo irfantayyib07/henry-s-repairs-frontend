@@ -15,7 +15,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
     url: '/auth/logout',
     method: 'POST',
    }),
-   async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+   async onQueryStarted(arg, { dispatch, queryFulfilled }) { // onQueryStarted() lets us dispatch the function right here and no need to call useDispatch in some component
     try {
      const { data } = await queryFulfilled
      console.log(data)

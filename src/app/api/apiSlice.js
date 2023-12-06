@@ -4,7 +4,7 @@ import { setCredentials } from '../../features/auth/authSlice'
 const baseQuery = fetchBaseQuery({
  baseUrl: 'http://localhost:3500',
  credentials: 'include',
- prepareHeaders: (headers, { getState }) => {
+ prepareHeaders: (headers, { getState }) => { // getState is being destructured from api object
   const token = getState().auth.token
 
   if (token) {
@@ -14,7 +14,7 @@ const baseQuery = fetchBaseQuery({
  }
 })
 
-const baseQueryWithReauth = async (args, api, extraOptions) => {
+const baseQueryWithReauth = async (args, api, extraOptions) => { // this is not the same api object as above
  // console.log(args) // request url, method, body
  // console.log(api) // signal, dispatch, getState()
  // console.log(extraOptions) //custom like {shout: true}
