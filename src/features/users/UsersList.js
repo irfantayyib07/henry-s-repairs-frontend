@@ -12,7 +12,7 @@ const UsersList = () => {
   isSuccess,
   isError,
   error
- } = useGetUsersQuery('usersList', {
+ } = useGetUsersQuery('usersList', { // "usersList" is kind of a cache key? (used in EditUser.js and User.js)
   pollingInterval: 60000,
   refetchOnFocus: true,
   refetchOnMountOrArgChange: true
