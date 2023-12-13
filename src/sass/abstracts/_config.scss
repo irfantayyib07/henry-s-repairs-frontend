@@ -1,0 +1,14 @@
+@function set-text-color($color) {
+ @if (lightness($color) > 70 or $color == transparent) {
+  @return black;
+ }
+
+ @else {
+  @return white;
+ }
+}
+
+@mixin set-theme($color) {
+ background-color: $color;
+ color: set-text-color($color);
+}

@@ -70,8 +70,8 @@ const Login = () => {
     <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
 
     <form className="form" onSubmit={handleSubmit}>
-     <label htmlFor="username">Username:</label>
      <input
+      placeholder="Username"
       className="form__input"
       type="text"
       id="username"
@@ -82,8 +82,8 @@ const Login = () => {
       required
      />
 
-     <label htmlFor="password">Password:</label>
      <input
+      placeholder='Password'
       className="form__input"
       type="password"
       id="password"
@@ -91,8 +91,6 @@ const Login = () => {
       value={password}
       required
      />
-     <button className="form__submit-button">Sign In</button>
-
 
      <label htmlFor="persist" className="form__persist">
       <input
@@ -104,6 +102,9 @@ const Login = () => {
       />
       Trust This Device
      </label>
+     
+     <button className="form__submit-button">Sign In</button>
+
     </form>
    </main>
    <footer>

@@ -1,0 +1,15 @@
+@use "abstracts/"  as at;
+@use "components/" as ct;
+
+*,
+*::before,
+*::after {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+body {
+ line-height: 1.5;
+ @include at.google-font(Montserrat);
+}
