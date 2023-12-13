@@ -1,5 +1,5 @@
-@use "abstracts/"  as at;
-@use "components/" as ct;
+@use "./"  as at;
+@use "./" as ct;
 
 *,
 *::before,

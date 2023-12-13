@@ -42,5 +42,10 @@
   &:hover {
    @include set-theme(black);
   }
+
+  &:focus {
+   @extend button;
+   outline: revert;
+  }
  }
 }
