@@ -1,6 +1,8 @@
 @import "./abstracts/";
 @import "./components/";
 
+// Reset
+
 *,
 *::before,
 *::after {
@@ -8,11 +10,6 @@
  margin: 0;
  padding: 0;
  color: inherit;
-}
-
-body {
- line-height: 1.5;
- @include google-font(Montserrat);
 }
 
 p {
@@ -23,8 +20,30 @@ a {
  text-decoration: none;
 }
 
-.layout {
- height: 100vh;
- min-height: fit-content;
+ul {
+ list-style-type: none;
+}
+
+// General Styles
+
+body {
+ line-height: 1.5;
+ @include google-font(Montserrat);
+}
+
+#root {
+ background-color: darkred;
+}
+
+.layout>section, .layout>.dash-layout {
+ max-width: 1400px;
+ min-height: 100vh;
+ margin: 0 auto;
  padding: 3rem;
+
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ gap: 1rem;
+ background-color: orange;
 }

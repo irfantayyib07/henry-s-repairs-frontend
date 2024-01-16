@@ -23,7 +23,7 @@ const NotesList = () => {
 
  let content
 
- if (isLoading) content = <PulseLoader color={"#FFF"} />
+ if (isLoading) content = <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />
 
  if (isError) {
   content = <p className="errmsg">{error?.data?.message}</p>
@@ -42,15 +42,15 @@ const NotesList = () => {
   const tableContent = ids?.length && filteredIds.map(noteId => <Note key={noteId} noteId={noteId} />)
 
   content = (
-   <table className="table table--notes">
-    <thead className="table__thead">
+   <table>
+    <thead>
      <tr>
-      <th scope="col" className="table__th note__status">Username</th>
-      <th scope="col" className="table__th note__created">Created</th>
-      <th scope="col" className="table__th note__updated">Updated</th>
-      <th scope="col" className="table__th note__title">Title</th>
-      <th scope="col" className="table__th note__username">Owner</th>
-      <th scope="col" className="table__th note__edit">Edit</th>
+      <th scope="col">Username</th>
+      <th scope="col">Created</th>
+      <th scope="col">Updated</th>
+      <th scope="col">Title</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Edit</th>
      </tr>
     </thead>
     <tbody>

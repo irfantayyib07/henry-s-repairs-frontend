@@ -11,24 +11,23 @@ const Welcome = () => {
  const date = new Date()
  const today = new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'long' }).format(date)
 
- const content = (
+ return (
   <section className="welcome">
 
-   <p>{today}</p>
+   <div className="welcome-text-container">
+    <p>{today}</p>
+    <h1>Welcome {username}!</h1>
+   </div>
 
-   <h1>Welcome {username}!</h1>
-
-   <p><Link to="/dash/notes">View techNotes</Link></p>
-
-   <p><Link to="/dash/notes/new">Add New techNote</Link></p>
-
-   {(isManager || isAdmin) && <p><Link to="/dash/users">View User Settings</Link></p>}
-
-   {(isManager || isAdmin) && <p><Link to="/dash/users/new">Add New User</Link></p>}
+   <ul className='welcome-link-list'>
+    <li><Link to="/dash/notes" className='btn'>View techNotes</Link></li>
+    <li><Link to="/dash/notes/new" className='btn'>Add New techNote</Link></li>
+    {(isManager || isAdmin) && <li><Link to="/dash/users" className='btn'>View User Settings</Link></li>}
+    {(isManager || isAdmin) && <li><Link to="/dash/users/new" className='btn'>Add New User</Link></li>}
+   </ul>
 
   </section>
  )
-
- return content
 }
+
 export default Welcome

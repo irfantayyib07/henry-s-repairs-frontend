@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom'
 
 const Public = () => {
- const content = (
+ return (
   <section className="public">
    <header>
     <h1>Welcome to <span className="nowrap">Henry S. Repairs!</span></h1>
    </header>
-   <main className="public__main">
+
+   <main>
     <p>Located in Beautiful Downtown Foo City, Henry S. Repairs  provides a trained staff ready to meet your tech repair needs.</p>
     <br />
-    <address className="public__addr">
+    <address>
      Henry S. Repairs<br />
      555 Foo Drive<br />
      Foo City, CA 12345<br />
@@ -18,12 +19,12 @@ const Public = () => {
     <br />
     <p>Owner: Henry Smith</p>
    </main>
+
    <footer>
     <Link to="/login" className="btn">Employee Login</Link>
    </footer>
   </section>
-
  )
- return content
 }
+
 export default Public

@@ -1,0 +1,16 @@
+.dash-footer {
+ margin-top: auto;
+ background-color: $secondary-color;
+ color: $primary-color;
+
+ padding: 1rem;
+
+ display: flex;
+ place-items: center;
+ flex-wrap: wrap;
+ gap: 0 2rem;
+
+ & button {
+  outline: none;
+ }
+}

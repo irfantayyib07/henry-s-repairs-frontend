@@ -1,5 +1,6 @@
-@forward "./public/Public";
-@forward "./public/Login";
-@forward "./private/DashLayout";
-@forward "./private/DashHeader";
-@forward "./private/DashFooter";
+@import "./public/Public";
+@import "./public/Login";
+@import "./private/DashLayout";
+@import "./private/DashHeader";
+@import "./private/DashFooter";
+@import "./private/Welcome";

@@ -59,17 +59,18 @@ const Login = () => {
 
  const errClass = errMsg ? "errmsg" : "offscreen"
 
- if (isLoading) return <PulseLoader color={"#FFF"} />
+ if (isLoading) return <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />
 
- const content = (
+ return (
   <section className="public">
    <header>
     <h1>Employee Login</h1>
    </header>
+
    <main className="login">
     <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
 
-    <form className="form" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
      <input
       placeholder="Username"
       className="form__input"
@@ -92,27 +93,21 @@ const Login = () => {
       required
      />
 
-     <label htmlFor="persist" className="form__persist">
-      <input
-       type="checkbox"
-       className="form__checkbox"
-       id="persist"
-       onChange={handleToggle}
-       checked={persist}
-      />
-      Trust This Device
-     </label>
-     
-     <button className="form__submit-button">Sign In</button>
+     <div>
+      <label htmlFor="persist" className="form__persist">
+       <input type="checkbox" className="form__checkbox" id="persist" onChange={handleToggle} checked={persist} />Trust This Device
+      </label>
+     </div>
 
+     <button>Sign In</button>
     </form>
    </main>
+
    <footer>
     <Link to="/" className="btn">Back to Home</Link>
    </footer>
   </section>
  )
-
- return content
 }
+
 export default Login

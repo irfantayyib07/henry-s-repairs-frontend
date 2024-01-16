@@ -18,9 +18,9 @@ const UsersList = () => {
   refetchOnMountOrArgChange: true
  })
 
- let content
+ let content;
 
- if (isLoading) content = <PulseLoader color={"#FFF"} />
+ if (isLoading) content = <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />
 
  if (isError) {
   content = <p className="errmsg">{error?.data?.message}</p>
@@ -33,12 +33,12 @@ const UsersList = () => {
   const tableContent = ids?.length && ids.map(userId => <User key={userId} userId={userId} />)
 
   content = (
-   <table className="table table--users">
-    <thead className="table__thead">
+   <table>
+    <thead>
      <tr>
-      <th scope="col" className="table__th user__username">Username</th>
-      <th scope="col" className="table__th user__roles">Roles</th>
-      <th scope="col" className="table__th user__edit">Edit</th>
+      <th scope="col">Username</th>
+      <th scope="col">Roles</th>
+      <th scope="col">Edit</th>
      </tr>
     </thead>
     <tbody>

@@ -25,17 +25,16 @@ const EditNote = () => {
   }),
  })
 
- if (!note || !users?.length) return <PulseLoader color={"#FFF"} />
+ if (!note || !users?.length) return <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />
 
 
  if (!isManager && !isAdmin) {
   if (note.username !== username) {
-   return <p className="errmsg">No access</p>
+   return <p>No access</p>
   }
  }
 
- const content = <EditNoteForm note={note} users={users} />
-
- return content
+ return <EditNoteForm note={note} users={users} />
 }
+
 export default EditNote

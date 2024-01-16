@@ -5,11 +5,11 @@
 .btn, button {
  display: block;
  width: fit-content;
- padding: .75rem 1rem;
+ padding: .75em 1em;
  outline: 1px solid black;
  border: 0;
  cursor: pointer;
- @include google-font(Montserrat);
+ @include google-font("Montserrat");
  @include set-theme(transparent);
 
  &:hover {

@@ -12,10 +12,9 @@ const NewNote = () => {
   }),
  })
 
- if (!users?.length) return <PulseLoader color={"#FFF"} />
+ if (!users?.length) return <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />
 
- const content = <NewNoteForm users={users} />
-
- return content
+ return <NewNoteForm users={users} />
 }
+
 export default NewNote

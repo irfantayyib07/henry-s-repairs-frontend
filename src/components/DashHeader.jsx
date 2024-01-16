@@ -45,75 +45,43 @@ const DashHeader = () => {
 
  let newNoteButton = null
  if (NOTES_REGEX.test(pathname)) {
-  newNoteButton = (
-   <button
-    className="icon-button"
-    title="New Note"
-    onClick={onNewNoteClicked}
-   >
-    <FontAwesomeIcon icon={faFileCirclePlus} />
-   </button>
-  )
+  newNoteButton = <button className="icon-button" title="New Note" onClick={onNewNoteClicked}>
+   <FontAwesomeIcon icon={faFileCirclePlus} />
+  </button>
  }
 
  let newUserButton = null
  if (USERS_REGEX.test(pathname)) {
-  newUserButton = (
-   <button
-    className="icon-button"
-    title="New User"
-    onClick={onNewUserClicked}
-   >
-    <FontAwesomeIcon icon={faUserPlus} />
-   </button>
-  )
+  newUserButton = <button className="icon-button" title="New User" onClick={onNewUserClicked}>
+   <FontAwesomeIcon icon={faUserPlus} />
+  </button>
  }
 
  let userButton = null
  if (isManager || isAdmin) {
   if (!USERS_REGEX.test(pathname) && pathname.includes('/dash')) {
-   userButton = (
-    <button
-     className="icon-button"
-     title="Users"
-     onClick={onUsersClicked}
-    >
-     <FontAwesomeIcon icon={faUserGear} />
-    </button>
-   )
+   userButton = <button className="icon-button" title="Users" onClick={onUsersClicked}>
+    <FontAwesomeIcon icon={faUserGear} />
+   </button>
   }
  }
 
  let notesButton = null
  if (!NOTES_REGEX.test(pathname) && pathname.includes('/dash')) {
-  notesButton = (
-   <button
-    className="icon-button"
-    title="Notes"
-    onClick={onNotesClicked}
-   >
-    <FontAwesomeIcon icon={faFilePen} />
-   </button>
-  )
+  notesButton = <button className="icon-button" title="Notes" onClick={onNotesClicked}>
+   <FontAwesomeIcon icon={faFilePen} />
+  </button>
  }
 
- const logoutButton = (
-  <button
-   className="icon-button"
-   title="Logout"
-   onClick={sendLogout}
-  >
-   <FontAwesomeIcon icon={faRightFromBracket} />
-  </button>
- )
+ const logoutButton = <button className="icon-button" title="Logout" onClick={sendLogout}>
+  <FontAwesomeIcon icon={faRightFromBracket} />
+ </button>
 
- const errClass = isError ? "errmsg" : "offscreen"
+ // const errClass = isError ? "errmsg" : "offscreen"
 
  let buttonContent
  if (isLoading) {
-  buttonContent = <div className="loader" style={{display: "flex", placeItems: "center"}}>
-   <PulseLoader color={"#FFF"} />
-  </div>
+  buttonContent = null;
  } else {
   buttonContent = (
    <>
@@ -126,23 +94,22 @@ const DashHeader = () => {
   )
  }
 
- const content = (
+ return (
   <>
-   <p className={errClass}>{error?.data?.message}</p>
+   {/* <p className={errClass}>{error?.data?.message}</p> */}
+   {isLoading && <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />}
 
    <header className="dash-header">
     <div className={`dash-header__container ${dashClass}`}>
      <Link to="/dash">
-      <h1 className="dash-header__title">techNotes</h1>
+      <h1>techNotes</h1>
      </Link>
-     <nav className="dash-header__nav">
+     <nav>
       {buttonContent}
      </nav>
     </div>
    </header>
   </>
  )
-
- return content
 }
 export default DashHeader
