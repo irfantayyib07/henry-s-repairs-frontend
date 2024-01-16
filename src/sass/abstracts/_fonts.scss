@@ -1,5 +1,26 @@
 @import "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap";
 
+// $weights: (
+//  "thin": 100,
+//  "extralight": 200,
+//  "light": 300,
+//  "regular": 400,
+//  "medium": 500,
+//  "semibold": 600,
+//  "bold": 700,
+//  "extrabold": 800,
+//  "black": 900,
+// );
+
+// @each $wght, $wghtNum in $weights {
+//  @font-face {
+//   font-family: "Montserrat";
+//   src: local("Montserrat"), url("https://fonts.googleapis.com/css2?family=Montserrat:wght@#{$wghtNum}&display=swap") format("woff2");
+//   font-weight: $wghtNum;
+//   font-style: normal;
+//  }
+// }
+
 @mixin google-font($family, $weight: 400) {
  font-family: $family;
  font-weight: $weight;

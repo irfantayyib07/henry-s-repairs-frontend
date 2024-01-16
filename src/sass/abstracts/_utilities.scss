@@ -1,3 +1,23 @@
 .nowrap {
  white-space: nowrap;
 }
+
+.btn, button {
+ display: block;
+ width: fit-content;
+ padding: .75rem 1rem;
+ outline: 1px solid black;
+ border: 0;
+ cursor: pointer;
+ @include google-font(Montserrat);
+ @include set-theme(transparent);
+
+ &:hover {
+  @include set-theme(black);
+ }
+
+ &:focus {
+  @extend .btn;
+  @include set-theme(black);
+ }
+}

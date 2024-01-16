@@ -8,6 +8,7 @@ const Public = () => {
    </header>
    <main className="public__main">
     <p>Located in Beautiful Downtown Foo City, Henry S. Repairs  provides a trained staff ready to meet your tech repair needs.</p>
+    <br />
     <address className="public__addr">
      Henry S. Repairs<br />
      555 Foo Drive<br />
@@ -18,7 +19,7 @@ const Public = () => {
     <p>Owner: Henry Smith</p>
    </main>
    <footer>
-    <Link to="/login">Employee Login</Link>
+    <Link to="/login" className="btn">Employee Login</Link>
    </footer>
   </section>
 

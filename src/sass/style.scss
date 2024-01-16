@@ -1,5 +1,5 @@
-@use "./"  as at;
-@use "./" as ct;
+@import "./abstracts/";
+@import "./components/";
 
 *,
 *::before,
@@ -7,9 +7,24 @@
  box-sizing: border-box;
  margin: 0;
  padding: 0;
+ color: inherit;
 }
 
 body {
  line-height: 1.5;
- @include at.google-font(Montserrat);
+ @include google-font(Montserrat);
+}
+
+p {
+ max-width: 60ch;
+}
+
+a {
+ text-decoration: none;
+}
+
+.layout {
+ height: 100vh;
+ min-height: fit-content;
+ padding: 3rem;
 }
