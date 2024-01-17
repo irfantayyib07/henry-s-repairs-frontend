@@ -3,7 +3,7 @@
  flex-wrap: wrap;
  justify-content: space-between;
 
- padding: 1rem;
+ padding: 1rem 6rem;
 
  background-color: $secondary-color;
  color: $primary-color;
@@ -12,8 +12,10 @@
   display: flex;
   gap: 1rem;
 
-  & button {
+  button {
    outline: none;
+   border-radius: 50%;
+   font-size: 1rem;
   }
  }
 }

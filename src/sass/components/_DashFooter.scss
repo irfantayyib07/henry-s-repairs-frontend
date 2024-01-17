@@ -3,14 +3,16 @@
  background-color: $secondary-color;
  color: $primary-color;
 
- padding: 1rem;
+ padding: 1rem 6rem;
 
  display: flex;
  place-items: center;
  flex-wrap: wrap;
  gap: 0 2rem;
 
- & button {
+ button {
   outline: none;
+  border-radius: 50%;
+  font-size: 1rem;
  }
 }

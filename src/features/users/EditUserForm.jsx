@@ -104,18 +104,20 @@ const EditUserForm = ({ user }) => {
   <>
    <p className={errClass}>{errContent}</p>
 
-   <form onSubmit={e => e.preventDefault()}>
-    <div>
+   <form onSubmit={e => e.preventDefault()} className="edit-user-form">
+    <header>
      <h2>Edit User</h2>
-     <button title="Save" onClick={onSaveUserClicked} disabled={!canSave}>
-      <FontAwesomeIcon icon={faSave} />
-     </button>
-     <button title="Delete" onClick={onDeleteUserClicked}>
-      <FontAwesomeIcon icon={faTrashCan} />
-     </button>
-    </div>
+     <div>
+      <button title="Save" onClick={onSaveUserClicked} disabled={!canSave}>
+       <FontAwesomeIcon icon={faSave} />
+      </button>
+      <button title="Delete" onClick={onDeleteUserClicked}>
+       <FontAwesomeIcon icon={faTrashCan} />
+      </button>
+     </div>
+    </header>
 
-    <div>
+    <div className="username-input-joiner">
      <label htmlFor="username">Username: <span className="nowrap">[3-20 letters]</span></label>
      <input
       className={`form__input ${validUserClass}`}
@@ -128,7 +130,7 @@ const EditUserForm = ({ user }) => {
      />
     </div>
 
-    <div>
+    <div className="password-input-joiner">
      <label htmlFor="password">Password: <span className="nowrap">[empty = no change]</span> <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
      <input
       className={`form__input ${validPwdClass}`}
@@ -140,9 +142,8 @@ const EditUserForm = ({ user }) => {
      />
     </div>
 
-    <div>
-     <label htmlFor="user-active">ACTIVE:
-      <input
+    <div className="active-checkbox-joiner">
+     <label htmlFor="user-active">Active: <input
        className="form__checkbox"
        id="user-active"
        name="user-active"
@@ -153,8 +154,8 @@ const EditUserForm = ({ user }) => {
      </label>
     </div>
 
-    <div>
-     <label htmlFor="roles">ASSIGNED ROLES:</label>
+    <div className="assigned-roles-joiner">
+     <label htmlFor="roles">Assigned roles</label>
      <select
       id="roles"
       name="roles"
@@ -167,7 +168,6 @@ const EditUserForm = ({ user }) => {
       {options}
      </select>
     </div>
-
    </form>
   </>
  )

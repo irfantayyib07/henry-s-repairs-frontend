@@ -1,0 +1,76 @@
+.edit-user-form {
+ display: grid;
+ gap: 2rem;
+
+ header {
+  display: grid;
+  gap: .75rem;
+
+  div {
+   display: flex;
+   gap: 1rem;
+
+   button {
+    outline: 1px solid $accent-color;
+    border-radius: 50%;
+    font-size: 1rem;
+   }
+  }
+ }
+
+ .username-input-joiner {
+  display: grid;
+  gap: 1rem;
+
+  input {
+   display: block;
+   outline: 1px solid $accent-color;
+   border: 0;
+   padding-inline: .5rem;
+   background-color: transparent;
+
+   font-family: unset;
+   font-size: 1rem;
+   font-weight: 300;
+
+   width: 40%;
+   min-width: 120px;
+  }
+ }
+
+ .password-input-joiner {
+  display: grid;
+  gap: 1rem;
+
+  input {
+   display: block;
+   outline: 1px solid $accent-color;
+   border: 0;
+   padding-inline: .5rem;
+   background-color: transparent;
+
+   font-family: unset;
+   font-size: 1rem;
+   font-weight: 300;
+
+   width: 40%;
+   min-width: 120px;
+  }
+ }
+
+ .assigned-roles-joiner {
+  display: flex;
+  gap: 1rem;
+
+  select {
+   border: 0;
+   background-color: unset;
+   padding: .5rem;
+
+   font-family: "Montserrat";
+   font-size: 1rem;
+   outline: 1px solid $accent-color;
+   overflow-y: visible;
+  }
+ }
+}

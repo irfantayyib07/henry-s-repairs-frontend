@@ -60,18 +60,13 @@ const NewUserForm = () => {
  const onSaveUserClicked = async (e) => {
   e.preventDefault()
   if (canSave) {
+   console.log("I AM RUNNING");
    await addNewUser({ username, password, roles })
   }
  }
 
  const options = Object.values(ROLES).map(role => {
-  return (
-   <option
-    key={role}
-    value={role}
-
-   > {role}</option >
-  )
+  return <option key={role} value={role}>{role}</option >
  })
 
  const errClass = isError ? "errmsg" : "offscreen"
@@ -83,15 +78,15 @@ const NewUserForm = () => {
   <>
    <p className={errClass}>{error?.data?.message}</p>
 
-   <form onSubmit={onSaveUserClicked}>
-    <div>
+   <form className="new-user-form" onSubmit={onSaveUserClicked}>
+    <header>
      <h2>New User</h2>
      <button title="Save" disabled={!canSave}>
       <FontAwesomeIcon icon={faSave} />
      </button>
-    </div>
+    </header>
 
-    <div>
+    <div className="username-input-joiner">
      <label htmlFor="username">
       Username: <span className="nowrap">[3-20 letters]</span></label>
      <input
@@ -105,7 +100,7 @@ const NewUserForm = () => {
      />
     </div>
 
-    <div>
+    <div className="password-input-joiner">
      <label htmlFor="password">Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
      <input
       className={`form__input ${validPwdClass}`}
@@ -117,8 +112,8 @@ const NewUserForm = () => {
      />
     </div>
 
-    <div>
-     <label htmlFor="roles">ASSIGNED ROLES:</label>
+    <div className="assigned-roles-joiner">
+     <label htmlFor="roles">Assigned roles:</label>
      <select
       id="roles"
       name="roles"

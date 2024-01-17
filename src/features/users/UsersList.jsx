@@ -33,18 +33,20 @@ const UsersList = () => {
   const tableContent = ids?.length && ids.map(userId => <User key={userId} userId={userId} />)
 
   content = (
-   <table>
-    <thead>
-     <tr>
-      <th scope="col">Username</th>
-      <th scope="col">Roles</th>
-      <th scope="col">Edit</th>
-     </tr>
-    </thead>
-    <tbody>
-     {tableContent}
-    </tbody>
-   </table>
+   <main>
+    <table className="users-table">
+     <thead>
+      <tr>
+       <th scope="col">Username</th>
+       <th scope="col">Roles</th>
+       <th scope="col">Edit</th>
+      </tr>
+     </thead>
+     <tbody>
+      {tableContent}
+     </tbody>
+    </table>
+   </main>
   )
  }
 

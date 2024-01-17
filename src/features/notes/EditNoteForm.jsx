@@ -88,8 +88,8 @@ const EditNoteForm = ({ note, users }) => {
   <>
    <p className={errClass}>{errContent}</p>
 
-   <form onSubmit={e => e.preventDefault()}>
-    <div>
+   <form onSubmit={e => e.preventDefault()} className="edit-note-form">
+    <header>
      <h2>Edit Note #{note.ticket}</h2>
      <div>
       <button title="Save" onClick={onSaveNoteClicked} disabled={!canSave}>
@@ -97,11 +97,10 @@ const EditNoteForm = ({ note, users }) => {
       </button>
       {deleteButton}
      </div>
-    </div>
+    </header>
 
-    <div>
-     <label htmlFor="note-title">
-      Title:</label>
+    <div className="title-input-joiner">
+     <label htmlFor="note-title">Title:</label>
      <input
       className={`form__input ${validTitleClass}`}
       id="note-title"
@@ -113,9 +112,8 @@ const EditNoteForm = ({ note, users }) => {
      />
     </div>
 
-    <div>
-     <label htmlFor="note-text">
-      Text:</label>
+    <div className="textarea-joiner">
+     <label htmlFor="note-text">Text:</label>
      <textarea
       className={`form__input form__input--text ${validTextClass}`}
       id="note-text"
@@ -125,28 +123,23 @@ const EditNoteForm = ({ note, users }) => {
      />
     </div>
 
-    <div>
-     
-     <div>
-      <label htmlFor="note-completed">
-       WORK COMPLETE:
-       <input id="note-completed" name="completed" type="checkbox" checked={completed} onChange={onCompletedChanged} />
-      </label>
-
-      <label htmlFor="note-username">
-       ASSIGNED TO:</label>
-      <select id="note-username" name="username" value={userId} onChange={onUserIdChanged}>
-       {options}
-      </select>
-     </div>
-
-     <div>
-      <p>Created:<br />{created}</p>
-      <p>Updated:<br />{updated}</p>
-     </div>
-
+    <div className="completed-checkbox-joiner">
+     <label htmlFor="note-completed">Completed: <input id="note-completed" name="completed" type="checkbox" checked={completed} onChange={onCompletedChanged} />
+     </label>
     </div>
-   </form>
+
+    <div className="assigned-to-joiner">
+     <label htmlFor="note-username">Assigned to:</label>
+     <select id="note-username" name="username" value={userId} onChange={onUserIdChanged}>
+      {options}
+     </select>
+    </div>
+
+    <div>
+     <p>Created: {created}</p>
+     <p>Updated: {updated}</p>
+    </div>
+   </form >
   </>
  )
 }

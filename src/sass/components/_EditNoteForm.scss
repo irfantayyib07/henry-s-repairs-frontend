@@ -1,0 +1,79 @@
+.edit-note-form {
+ display: grid;
+ gap: 2rem;
+
+ header {
+  display: grid;
+  gap: .75rem;
+
+  div {
+   display: flex;
+   gap: 1rem;
+
+   button {
+    outline: 1px solid $accent-color;
+    border-radius: 50%;
+    font-size: 1rem;
+   }
+  }
+ }
+
+ .title-input-joiner {
+  display: flex;
+  gap: 1rem;
+
+  input {
+   display: block;
+   outline: 1px solid $accent-color;
+   border: 0;
+   padding-inline: .5rem;
+   background-color: transparent;
+
+   font-family: unset;
+   font-size: 1rem;
+   font-weight: 300;
+
+   width: 40%;
+   min-width: 120px;
+  }
+ }
+
+ .textarea-joiner {
+  display: flex;
+  gap: 1rem;
+
+  textarea {
+   display: block;
+   outline: 1px solid $accent-color;
+   border: 0;
+   padding: .5rem;
+   background-color: transparent;
+
+   font-family: unset;
+   font-size: 1rem;
+   font-weight: 300;
+
+   width: 40%;
+   min-width: 120px;
+   height: 120px;
+
+   resize: both;
+  }
+ }
+
+ .assigned-to-joiner {
+  display: flex;
+  gap: 1rem;
+
+  select {
+   border: 0;
+   background-color: unset;
+
+   font-family: "Montserrat";
+   font-size: 1rem;
+   outline: 1px solid $accent-color;
+
+   padding-left: .75rem;
+  }
+ }
+}

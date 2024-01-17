@@ -70,10 +70,10 @@ const Login = () => {
    <main className="login">
     <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
 
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="login-form">
      <input
       placeholder="Username"
-      className="form__input"
+      className="form-input"
       type="text"
       id="username"
       ref={userRef}
@@ -85,7 +85,7 @@ const Login = () => {
 
      <input
       placeholder='Password'
-      className="form__input"
+      className="form-input"
       type="password"
       id="password"
       onChange={handlePwdInput}
@@ -93,9 +93,9 @@ const Login = () => {
       required
      />
 
-     <div>
+     <div className="login-checkbox-joiner">
       <label htmlFor="persist" className="form__persist">
-       <input type="checkbox" className="form__checkbox" id="persist" onChange={handleToggle} checked={persist} />Trust This Device
+       <input type="checkbox" className="form__checkbox" id="persist" onChange={handleToggle} checked={persist} /> Trust This Device
       </label>
      </div>
 

@@ -1,0 +1,17 @@
+.notes-table {
+ width: 100%;
+ text-align: center;
+ border-collapse: collapse;
+
+ th,
+ td {
+  border: 1px solid $accent-color;
+  padding-block: .5em;
+ }
+
+ button {
+  outline: none;
+  border-radius: 50%;
+  font-size: 1rem;
+ }
+}

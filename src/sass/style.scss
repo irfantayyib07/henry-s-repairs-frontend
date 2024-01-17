@@ -31,19 +31,21 @@ body {
  @include google-font(Montserrat);
 }
 
-#root {
- background-color: darkred;
-}
-
-.layout>section, .layout>.dash-layout {
+.layout>section {
  max-width: 1400px;
  min-height: 100vh;
  margin: 0 auto;
- padding: 3rem;
 
  display: flex;
  flex-direction: column;
  justify-content: space-between;
  gap: 1rem;
- background-color: orange;
+
+ position: relative;
+
+ header,
+ footer,
+ main {
+  padding-inline: 6rem;
+ }
 }

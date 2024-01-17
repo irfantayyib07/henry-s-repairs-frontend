@@ -42,21 +42,23 @@ const NotesList = () => {
   const tableContent = ids?.length && filteredIds.map(noteId => <Note key={noteId} noteId={noteId} />)
 
   content = (
-   <table>
-    <thead>
-     <tr>
-      <th scope="col">Username</th>
-      <th scope="col">Created</th>
-      <th scope="col">Updated</th>
-      <th scope="col">Title</th>
-      <th scope="col">Owner</th>
-      <th scope="col">Edit</th>
-     </tr>
-    </thead>
-    <tbody>
-     {tableContent}
-    </tbody>
-   </table>
+   <main>
+    <table className="notes-table">
+     <thead>
+      <tr>
+       <th scope="col">Username</th>
+       <th scope="col">Created</th>
+       <th scope="col">Updated</th>
+       <th scope="col">Title</th>
+       <th scope="col">Owner</th>
+       <th scope="col">Edit</th>
+      </tr>
+     </thead>
+     <tbody>
+      {tableContent}
+     </tbody>
+    </table>
+   </main>
   )
  }
 

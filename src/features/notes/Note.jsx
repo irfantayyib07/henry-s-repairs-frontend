@@ -24,7 +24,7 @@ const Note = ({ noteId }) => {
   return (
    <tr>
     <td>
-     {note.completed ? <span className="note__status--completed">Completed</span> : <span className="note__status--open">Open</span>}
+     {note.completed ? <span style={{ color: "green" }}>Completed</span> : <span style={{ color: "red" }}>Open</span>}
     </td>
     <td>{created}</td>
     <td>{updated}</td>

@@ -55,13 +55,13 @@ const NewNoteForm = ({ users }) => {
   <>
    <p className={errClass}>{error?.data?.message}</p>
 
-   <form onSubmit={onSaveNoteClicked}>
-    <div>
+   <form className="new-note-form" onSubmit={onSaveNoteClicked}>
+    <header>
      <h2>New Note</h2>
      <button title="Save" disabled={!canSave}><FontAwesomeIcon icon={faSave} /></button>
-    </div>
+    </header>
 
-    <div>
+    <div className="title-input-joiner">
      <label htmlFor="title">Title:</label>
      <input
       className={`${validTitleClass}`}
@@ -74,13 +74,13 @@ const NewNoteForm = ({ users }) => {
      />
     </div>
 
-    <div>
+    <div className="textarea-joiner">
      <label htmlFor="text">Text:</label>
      <textarea className={`${validTextClass}`} id="text" name="text" value={text} onChange={onTextChanged} />
     </div>
 
-    <div>
-     <label htmlFor="username">ASSIGNED TO:</label>
+    <div className="assigned-to-joiner">
+     <label htmlFor="username">Assigned to:</label>
      <select id="username" name="username" value={userId} onChange={onUserIdChanged}>
       {options}
      </select>

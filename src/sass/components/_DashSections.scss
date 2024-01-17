@@ -1,0 +1,28 @@
+.dash-layout {
+ max-width: 1400px;
+ height: 100vh;
+
+ margin: 0 auto;
+
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ gap: 1rem;
+
+ position: relative;
+
+ form {
+  overflow-y: auto;
+  padding-inline: 6rem;
+ }
+
+ main {
+  overflow-y: auto;
+  padding-inline: 6rem;
+ }
+
+ section { 
+  overflow-y: auto;
+  padding-inline: 6rem;
+ }
+}
