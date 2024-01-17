@@ -97,17 +97,13 @@ const DashHeader = () => {
  return (
   <>
    {/* <p className={errClass}>{error?.data?.message}</p> */}
-   {isLoading && <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />}
 
+   {isLoading && <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />}
    <header className="dash-header">
-    <div className={`dash-header__container ${dashClass}`}>
-     <Link to="/dash">
-      <h1>techNotes</h1>
-     </Link>
-     <nav>
-      {buttonContent}
-     </nav>
-    </div>
+    <h1><Link to="/dash">techNotes</Link></h1>
+    <nav>
+     {buttonContent}
+    </nav>
    </header>
   </>
  )

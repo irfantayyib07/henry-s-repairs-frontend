@@ -13,16 +13,17 @@
 
  form {
   overflow-y: auto;
-  padding-inline: 6rem;
+  padding-inline: clamp(1rem, 10vw, 6rem);
  }
 
  main {
+  position: relative;
   overflow-y: auto;
-  padding-inline: 6rem;
+  padding-inline: clamp(1rem, 10vw, 6rem);
  }
 
  section { 
   overflow-y: auto;
-  padding-inline: 6rem;
+  padding-inline: clamp(1rem, 10vw, 6rem);
  }
 }

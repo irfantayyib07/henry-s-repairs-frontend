@@ -59,7 +59,7 @@ const Login = () => {
 
  const errClass = errMsg ? "errmsg" : "offscreen"
 
- if (isLoading) return <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />
+ if (isLoading) return <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
 
  return (
   <section className="public">

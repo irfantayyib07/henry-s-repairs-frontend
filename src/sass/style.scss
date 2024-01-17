@@ -26,26 +26,34 @@ ul {
 
 // General Styles
 
+::selection,
+::-moz-selection {
+ color: white;
+ background: $accent-color;
+}
+
 body {
  line-height: 1.5;
  @include google-font(Montserrat);
 }
 
-.layout>section {
- max-width: 1400px;
- min-height: 100vh;
- margin: 0 auto;
+.layout {
+ &>section {
+  max-width: 1400px;
+  min-height: 100vh;
+  margin: 0 auto;
 
- display: flex;
- flex-direction: column;
- justify-content: space-between;
- gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
 
- position: relative;
+  position: relative;
 
- header,
- footer,
- main {
-  padding-inline: 6rem;
+  header,
+  footer,
+  main {
+   padding-inline: clamp(1rem, 10vw, 6rem);
+  }
  }
 }

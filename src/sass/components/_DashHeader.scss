@@ -1,9 +1,9 @@
-.dash-header__container {
+.dash-layout>header {
  display: flex;
  flex-wrap: wrap;
  justify-content: space-between;
 
- padding: 1rem 6rem;
+ padding: 1rem clamp(1rem, 10vw, 6rem);
 
  background-color: $secondary-color;
  color: $primary-color;
