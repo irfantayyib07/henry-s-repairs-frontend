@@ -53,7 +53,8 @@ const EditNoteForm = ({ note, users }) => {
   }
  }
 
- const onDeleteNoteClicked = async () => {
+ const onDeleteNoteClicked = async (e) => {
+  e.target.closest("button").disabled = true;
   await deleteNote({ id: note.id })
  }
 

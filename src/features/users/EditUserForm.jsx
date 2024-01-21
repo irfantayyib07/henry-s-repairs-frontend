@@ -72,7 +72,8 @@ const EditUserForm = ({ user }) => {
   }
  }
 
- const onDeleteUserClicked = async () => {
+ const onDeleteUserClicked = async (e) => {
+  e.target.closest("button").disabled = true;
   await deleteUser({ id: user.id })
  }
 
