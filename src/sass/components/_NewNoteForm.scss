@@ -69,7 +69,6 @@
   gap: 1rem;
 
   select {
-   
    background-color: unset;
    
    font-family: "Montserrat";
@@ -77,6 +76,10 @@
    border: 1px solid $accent-color;
 
    padding-left: .75rem;
+
+   &:focus {
+    outline: 1px solid $accent-color;
+   }
   }
  }
 }

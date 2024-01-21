@@ -1,4 +1,5 @@
 @import "./abstracts/";
+@import "./abstracts/utilities";
 @import "./components/";
 
 // Reset
@@ -45,7 +46,6 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   position: relative;
 
   header,

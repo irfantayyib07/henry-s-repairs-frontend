@@ -5,6 +5,8 @@ import { setCredentials } from './authSlice'
 import { useLoginMutation } from './authApiSlice'
 import usePersist from '../../hooks/usePersist'
 import useTitle from '../../hooks/useTitle'
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PulseLoader from 'react-spinners/PulseLoader'
 
 const Login = () => {
@@ -64,6 +66,7 @@ const Login = () => {
  return (
   <section className="public">
    <header>
+    <button onClick={() => navigate("/")}><FontAwesomeIcon icon={faArrowLeft} /></button>
     <h1>Employee Login</h1>
    </header>
 
@@ -99,13 +102,9 @@ const Login = () => {
       </label>
      </div>
 
-     <button>Sign In</button>
+     <button>SIGN IN</button>
     </form>
    </main>
-
-   <footer>
-    <Link to="/" className="btn">Back to Home</Link>
-   </footer>
   </section>
  )
 }

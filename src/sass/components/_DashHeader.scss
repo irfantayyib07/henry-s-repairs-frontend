@@ -1,6 +1,7 @@
 .dash-layout>header {
  display: flex;
  flex-wrap: wrap;
+ align-items: center;
  justify-content: space-between;
 
  padding: 1rem clamp(1rem, 10vw, 6rem);
@@ -8,9 +9,21 @@
  background-color: $secondary-color;
  color: $primary-color;
 
+ h1>a {
+  &:hover {
+   opacity: .7;
+  }
+
+  &:focus {
+   outline: 0;
+   opacity: .7;
+   text-decoration: underline;
+  }
+ }
+
  nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 
   button {
    outline: none;
