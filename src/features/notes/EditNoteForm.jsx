@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useUpdateNoteMutation, useDeleteNoteMutation } from "./notesApiSlice"
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,6 +6,7 @@ import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import useAuth from "../../hooks/useAuth"
 
 const EditNoteForm = ({ note, users }) => {
+ const toBeFocused = useRef();
 
  const { isManager, isAdmin } = useAuth()
 
@@ -30,6 +31,7 @@ const EditNoteForm = ({ note, users }) => {
  const [userId, setUserId] = useState(note.user)
 
  useEffect(() => {
+  toBeFocused.current.focus();
 
   if (isSuccess || isDelSuccess) {
    setTitle('')
@@ -72,8 +74,8 @@ const EditNoteForm = ({ note, users }) => {
  })
 
  const errClass = (isError || isDelError) ? "errmsg" : "offscreen"
- const validTitleClass = !title ? "form__input--incomplete" : ''
- const validTextClass = !text ? "form__input--incomplete" : ''
+ const validTitleClass = !title ? "invalid-input" : ''
+ const validTextClass = !text ? "invalid-input" : ''
 
  const errContent = (error?.data?.message || delerror?.data?.message) ?? ''
 
@@ -103,7 +105,8 @@ const EditNoteForm = ({ note, users }) => {
     <div className="title-input-joiner">
      <label htmlFor="note-title">Title:</label>
      <input
-      className={`form__input ${validTitleClass}`}
+      ref={toBeFocused}
+      className={`${validTitleClass}`}
       id="note-title"
       name="title"
       type="text"
@@ -116,7 +119,7 @@ const EditNoteForm = ({ note, users }) => {
     <div className="textarea-joiner">
      <label htmlFor="note-text">Text:</label>
      <textarea
-      className={`form__input form__input--text ${validTextClass}`}
+      className={`${validTextClass}`}
       id="note-text"
       name="text"
       value={text}

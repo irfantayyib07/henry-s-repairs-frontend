@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useUpdateUserMutation, useDeleteUserMutation } from "./usersApiSlice"
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,6 +9,7 @@ const USER_REGEX = /^[A-z]{3,20}$/
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/
 
 const EditUserForm = ({ user }) => {
+ const toBeFocused = useRef();
 
  const [updateUser, {
   isLoading,
@@ -41,7 +42,8 @@ const EditUserForm = ({ user }) => {
  }, [password])
 
  useEffect(() => {
-  console.log(isSuccess)
+  toBeFocused.current.focus();
+
   if (isSuccess || isDelSuccess) {
    setUsername('')
    setPassword('')
@@ -95,9 +97,9 @@ const EditUserForm = ({ user }) => {
  }
 
  const errClass = (isError || isDelError) ? "errmsg" : "offscreen"
- const validUserClass = !validUsername ? 'form__input--incomplete' : ''
- const validPwdClass = password && !validPassword ? 'form__input--incomplete' : ''
- const validRolesClass = !Boolean(roles.length) ? 'form__input--incomplete' : ''
+ const validUserClass = !validUsername ? 'invalid-input' : ''
+ const validPwdClass = password && !validPassword ? 'invalid-input' : ''
+ const validRolesClass = !Boolean(roles.length) ? 'invalid-input' : ''
 
  const errContent = (error?.data?.message || delerror?.data?.message) ?? ''
 
@@ -120,7 +122,8 @@ const EditUserForm = ({ user }) => {
     <div className="username-input-joiner">
      <label htmlFor="username">Username: <span className="nowrap">[3-20 letters]</span></label>
      <input
-      className={`form__input ${validUserClass}`}
+      ref={toBeFocused}
+      className={`${validUserClass}`}
       id="username"
       name="username"
       type="text"
@@ -131,9 +134,9 @@ const EditUserForm = ({ user }) => {
     </div>
 
     <div className="password-input-joiner">
-     <label htmlFor="password">Password: <span className="nowrap">[empty = no change]</span> <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
+     <label htmlFor="password">Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
      <input
-      className={`form__input ${validPwdClass}`}
+      className={`${validPwdClass}`}
       id="password"
       name="password"
       type="password"
@@ -144,7 +147,6 @@ const EditUserForm = ({ user }) => {
 
     <div className="active-checkbox-joiner">
      <label htmlFor="user-active">Active: <input
-      className="form__checkbox"
       id="user-active"
       name="user-active"
       type="checkbox"
@@ -159,7 +161,7 @@ const EditUserForm = ({ user }) => {
      <select
       id="roles"
       name="roles"
-      className={`form__select ${validRolesClass}`}
+      className={`${validRolesClass}`}
       multiple={true}
       size="3"
       value={roles}

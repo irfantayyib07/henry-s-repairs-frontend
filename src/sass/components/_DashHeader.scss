@@ -4,7 +4,7 @@
  align-items: center;
  justify-content: space-between;
 
- padding: 1rem clamp(1rem, 10vw, 6rem);
+ padding: .25rem clamp(1rem, 10vw, 6rem);
 
  background-color: $secondary-color;
  color: $primary-color;
@@ -15,9 +15,8 @@
   }
 
   &:focus {
-   outline: 0;
-   opacity: .7;
-   text-decoration: underline;
+   outline: 1px solid black;
+   outline-offset: 3px;
   }
  }
 

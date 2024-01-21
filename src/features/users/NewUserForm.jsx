@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useAddNewUserMutation } from "./usersApiSlice"
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,6 +10,8 @@ const USER_REGEX = /^[A-z]{3,20}$/
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/
 
 const NewUserForm = () => {
+ const toBeFocused = useRef();
+
  useTitle('Henry S. Repairs: New User')
 
  const [addNewUser, {
@@ -36,6 +38,8 @@ const NewUserForm = () => {
  }, [password])
 
  useEffect(() => {
+  toBeFocused.current.focus();
+
   if (isSuccess) {
    setUsername('')
    setPassword('')
@@ -70,9 +74,9 @@ const NewUserForm = () => {
  })
 
  const errClass = isError ? "errmsg" : "offscreen"
- const validUserClass = !validUsername ? 'form__input--incomplete' : ''
- const validPwdClass = !validPassword ? 'form__input--incomplete' : ''
- const validRolesClass = !Boolean(roles.length) ? 'form__input--incomplete' : ''
+ const validUserClass = !validUsername ? 'invalid-input' : ''
+ const validPwdClass = !validPassword ? 'invalid-input' : ''
+ const validRolesClass = !Boolean(roles.length) ? 'invalid-input' : ''
 
  return (
   <>
@@ -89,7 +93,8 @@ const NewUserForm = () => {
      <label htmlFor="username">
       Username: <span className="nowrap">[3-20 letters]</span></label>
      <input
-      className={`form__input ${validUserClass}`}
+      ref={toBeFocused}
+      className={`${validUserClass}`}
       id="username"
       name="username"
       type="text"
@@ -102,7 +107,7 @@ const NewUserForm = () => {
     <div className="password-input-joiner">
      <label htmlFor="password">Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
      <input
-      className={`form__input ${validPwdClass}`}
+      className={`${validPwdClass}`}
       id="password"
       name="password"
       type="password"
@@ -116,7 +121,7 @@ const NewUserForm = () => {
      <select
       id="roles"
       name="roles"
-      className={`form__select ${validRolesClass}`}
+      className={`${validRolesClass}`}
       multiple={true}
       size="3"
       value={roles}

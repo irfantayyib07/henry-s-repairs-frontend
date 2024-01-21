@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAddNewNoteMutation } from "./notesApiSlice"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from "@fortawesome/free-solid-svg-icons"
 
 const NewNoteForm = ({ users }) => {
+ const toBeFocused = useRef();
 
  const [addNewNote, {
   isLoading,
@@ -20,6 +21,8 @@ const NewNoteForm = ({ users }) => {
  const [userId, setUserId] = useState(users[0].id)
 
  useEffect(() => {
+  toBeFocused.current.focus();
+
   if (isSuccess) {
    setTitle('')
    setText('')
@@ -48,8 +51,8 @@ const NewNoteForm = ({ users }) => {
  })
 
  const errClass = isError ? "errmsg" : "offscreen"
- const validTitleClass = !title ? "form__input--incomplete" : ''
- const validTextClass = !text ? "form__input--incomplete" : ''
+ const validTitleClass = !title ? "invalid-input" : ''
+ const validTextClass = !text ? "invalid-input" : ''
 
  return (
   <>
@@ -63,6 +66,7 @@ const NewNoteForm = ({ users }) => {
     <div className="title-input-joiner">
      <label htmlFor="title">Title:</label>
      <input
+      ref={toBeFocused}
       className={`${validTitleClass}`}
       id="title"
       name="title"

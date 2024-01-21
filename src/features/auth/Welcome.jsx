@@ -20,10 +20,10 @@ const Welcome = () => {
    </div>
 
    <ul className='welcome-link-list'>
-    <li><Link to="/dash/notes" className='btn'>View and Edit Notes</Link></li>
-    <li><Link to="/dash/notes/new" className='btn'>Add New Note</Link></li>
-    {(isManager || isAdmin) && <li><Link to="/dash/users" className='btn'>View and Edit Users</Link></li>}
-    {(isManager || isAdmin) && <li><Link to="/dash/users/new" className='btn'>Add New User</Link></li>}
+    <li><Link to="/dash/notes">View and Edit Notes</Link></li>
+    <li><Link to="/dash/notes/new">Add New Note</Link></li>
+    {(isManager || isAdmin) && <li><Link to="/dash/users">View and Edit Users</Link></li>}
+    {(isManager || isAdmin) && <li><Link to="/dash/users/new">Add New User</Link></li>}
    </ul>
 
   </section>
