@@ -37,7 +37,7 @@
    max-width: 400px;
 
    &:focus {
-    outline: 1px solid black;
+    outline: 1px solid $accent-color;
    }
   }
  }
@@ -61,7 +61,7 @@
    max-width: 400px;
 
    &:focus {
-    outline: 1px solid black;
+    outline: 1px solid $accent-color;
    }
   }
  }
@@ -80,7 +80,7 @@
    overflow-y: visible;
 
    &:focus {
-    outline: 1px solid black;
+    outline: 1px solid $accent-color;
    }
   }
  }

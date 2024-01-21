@@ -37,7 +37,7 @@
    max-width: 400px;
 
    &:focus {
-    outline: 1px solid black;
+    outline: 1px solid $accent-color;
    }
   }
  }
@@ -64,13 +64,13 @@
    resize: both;
 
    &:focus {
-    outline: 1px solid black;
+    outline: 1px solid $accent-color;
    }
   }
  }
 
  .completed-checkbox-joiner input {
-  accent-color: black;
+  accent-color: $accent-color;
  }
 
  .assigned-to-joiner {
@@ -87,7 +87,7 @@
    padding-left: .75rem;
 
    &:focus {
-    outline: 1px solid black;
+    outline: 1px solid $accent-color;
    }
   }
  }
