@@ -21,7 +21,7 @@
  }
 }
 
-button {
+button:not([disabled]) {
  border: 0;
  width: 50px;
  cursor: pointer;
@@ -38,6 +38,14 @@ button {
   @include set-theme(black);
   outline: none;
  }
+}
+
+button[disabled] {
+ border: 0;
+ width: 50px;
+ aspect-ratio: 1 / 1;
+ 
+ opacity: .5;
 }
 
 .offscreen {
