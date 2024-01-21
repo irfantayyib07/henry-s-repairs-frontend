@@ -64,7 +64,7 @@ const NewUserForm = () => {
  const onSaveUserClicked = async (e) => {
   e.preventDefault()
   if (canSave) {
-   console.log("I AM RUNNING");
+  // console.log("I AM RUNNING");
    await addNewUser({ username, password, roles })
   }
  }
