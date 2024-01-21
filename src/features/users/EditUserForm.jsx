@@ -102,9 +102,8 @@ const EditUserForm = ({ user }) => {
 
  return (
   <>
-   <p className={errClass}>{errContent}</p>
-
    <form onSubmit={e => e.preventDefault()} className="edit-user-form">
+    <p className={errClass}>{errContent}</p>
     <header>
      <h2>Edit User</h2>
      <div>
@@ -144,13 +143,13 @@ const EditUserForm = ({ user }) => {
 
     <div className="active-checkbox-joiner">
      <label htmlFor="user-active">Active: <input
-       className="form__checkbox"
-       id="user-active"
-       name="user-active"
-       type="checkbox"
-       checked={active}
-       onChange={onActiveChanged}
-      />
+      className="form__checkbox"
+      id="user-active"
+      name="user-active"
+      type="checkbox"
+      checked={active}
+      onChange={onActiveChanged}
+     />
      </label>
     </div>
 

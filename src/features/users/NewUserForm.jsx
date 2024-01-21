@@ -10,7 +10,7 @@ const USER_REGEX = /^[A-z]{3,20}$/
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/
 
 const NewUserForm = () => {
- useTitle('techNotes: New User')
+ useTitle('Henry S. Repairs: New User')
 
  const [addNewUser, {
   isLoading,
@@ -76,9 +76,8 @@ const NewUserForm = () => {
 
  return (
   <>
-   <p className={errClass}>{error?.data?.message}</p>
-
    <form className="new-user-form" onSubmit={onSaveUserClicked}>
+    <p className={errClass}>{error?.data?.message}</p>
     <header>
      <h2>New User</h2>
      <button title="Save" disabled={!canSave}>

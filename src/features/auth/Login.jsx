@@ -45,7 +45,7 @@ const Login = () => {
    } else if (err.status === 400) {
     setErrMsg('Missing Username or Password');
    } else if (err.status === 401) {
-    setErrMsg('Unauthorized');
+    setErrMsg('Email or password incorrect');
    } else {
     setErrMsg(err.data?.message);
    }
@@ -59,7 +59,7 @@ const Login = () => {
 
  const errClass = errMsg ? "errmsg" : "offscreen"
 
- if (isLoading) return <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
+ if (isLoading) return <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, --50%)" }} />
 
  return (
   <section className="public">
@@ -68,9 +68,9 @@ const Login = () => {
    </header>
 
    <main className="login">
-    <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
 
     <form onSubmit={handleSubmit} className="login-form">
+     <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
      <input
       placeholder="Username"
       className="form-input"

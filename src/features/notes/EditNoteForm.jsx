@@ -86,9 +86,9 @@ const EditNoteForm = ({ note, users }) => {
 
  return (
   <>
-   <p className={errClass}>{errContent}</p>
 
    <form onSubmit={e => e.preventDefault()} className="edit-note-form">
+    <p className={errClass}>{errContent}</p>
     <header>
      <h2>Edit Note #{note.ticket}</h2>
      <div>

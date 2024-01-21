@@ -18,6 +18,10 @@
 
   width: 100%;
   max-width: 400px;
+
+  &:focus {
+  background-color: rgb(244, 244, 244);
+  }
  }
 
  .login-checkbox-joiner {
@@ -26,6 +30,10 @@
   flex-wrap: wrap;
   gap: .75rem;
   user-select: none;
+
+  input {
+   accent-color: $accent-color;
+  }
  }
 
  button {

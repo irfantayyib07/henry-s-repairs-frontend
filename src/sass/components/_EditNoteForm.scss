@@ -25,8 +25,8 @@
   input {
    display: block;
    border: 1px solid $accent-color;
-   
-   padding-inline: .5rem;
+
+   padding: .5rem;
    background-color: transparent;
 
    font-family: unset;
@@ -35,6 +35,10 @@
 
    width: 100%;
    max-width: 400px;
+
+   &:focus {
+    outline: 1px solid black;
+   }
   }
  }
 
@@ -45,7 +49,7 @@
   textarea {
    display: block;
    border: 1px solid $accent-color;
-   
+
    padding: .5rem;
    background-color: transparent;
 
@@ -58,7 +62,15 @@
    height: 120px;
 
    resize: both;
+
+   &:focus {
+    outline: 1px solid black;
+   }
   }
+ }
+
+ .completed-checkbox-joiner input {
+  accent-color: black;
  }
 
  .assigned-to-joiner {
@@ -66,7 +78,6 @@
   gap: 1rem;
 
   select {
-   
    background-color: unset;
 
    font-family: "Montserrat";
@@ -74,6 +85,10 @@
    border: 1px solid $accent-color;
 
    padding-left: .75rem;
+
+   &:focus {
+    outline: 1px solid black;
+   }
   }
  }
 }

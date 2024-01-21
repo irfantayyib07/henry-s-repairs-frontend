@@ -55,7 +55,7 @@ const PersistLogin = () => {
   content = <Outlet />
  } else if (isLoading) { //persist: yes, token: no
   console.log('loading')
-  content = <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />
+  content = <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, --50%)" }} />
  } else if (isError) { //persist: yes, token: no
   console.log('error')
   content = (

@@ -7,19 +7,18 @@
  display: flex;
  flex-direction: column;
  justify-content: space-between;
- gap: 1rem;
 
  position: relative;
 
  form {
   overflow-y: auto;
-  padding-inline: clamp(1rem, 10vw, 6rem);
+  padding: 1rem clamp(1rem, 10vw, 6rem);
  }
 
  main {
   position: relative;
   overflow-y: auto;
-  padding-inline: clamp(1rem, 10vw, 6rem);
+  padding: 1rem clamp(1rem, 10vw, 6rem);
  }
 
  section { 

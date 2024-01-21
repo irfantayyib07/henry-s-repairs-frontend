@@ -53,9 +53,8 @@ const NewNoteForm = ({ users }) => {
 
  return (
   <>
-   <p className={errClass}>{error?.data?.message}</p>
-
    <form className="new-note-form" onSubmit={onSaveNoteClicked}>
+    <p className={errClass}>{error?.data?.message}</p>
     <header>
      <h2>New Note</h2>
      <button title="Save" disabled={!canSave}><FontAwesomeIcon icon={faSave} /></button>

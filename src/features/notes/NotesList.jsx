@@ -5,7 +5,7 @@ import useTitle from "../../hooks/useTitle"
 import PulseLoader from 'react-spinners/PulseLoader'
 
 const NotesList = () => {
- useTitle('techNotes: Notes List')
+ useTitle('Henry S. Repairs: Notes List')
 
  const { username, isManager, isAdmin } = useAuth()
 
@@ -23,10 +23,12 @@ const NotesList = () => {
 
  let content
 
- if (isLoading) content = <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 50%)" }} />
+ if (isLoading) content = <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
 
  if (isError) {
-  content = <p className="errmsg">{error?.data?.message}</p>
+  content = <main>
+   <p>{error?.data?.message}</p>
+  </main>
  }
 
  if (isSuccess) {

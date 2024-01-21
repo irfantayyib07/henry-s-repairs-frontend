@@ -30,6 +30,10 @@
  
    width: 100%;
    max-width: 400px;
+
+   &:focus {
+    outline: 1px solid black;
+   }
   }
  }
 
@@ -53,6 +57,10 @@
    height: 120px;
 
    resize: both;
+
+   &:focus {
+    outline: 1px solid black;
+   }
   }
  }
 

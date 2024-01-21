@@ -36,5 +36,19 @@ button {
 
  &:focus {
   @include set-theme(black);
+  outline: none;
  }
+}
+
+.offscreen {
+ position: absolute;
+}
+
+.errmsg {
+ outline: 1px solid rgb(241, 49, 49);
+ background-color: rgb(255, 215, 215);
+ color: black;
+
+ width: fit-content;
+ padding: .75rem 1rem;
 }
