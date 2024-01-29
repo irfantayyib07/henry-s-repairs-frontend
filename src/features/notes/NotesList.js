@@ -1,6 +1,7 @@
 import { notesApiSlice } from "./notesApiSlice"
 import Note from "./Note"
 import useAuth from "../../hooks/useAuth"
+import { useSelector } from "react-redux"
 
 const NotesList = () => {
 
