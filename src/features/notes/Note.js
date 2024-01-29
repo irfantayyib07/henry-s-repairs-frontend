@@ -7,7 +7,11 @@ import { selectNoteById } from './notesApiSlice'
 
 const Note = ({ noteId }) => {
 
- const note = useSelector(state => selectNoteById(state, noteId))
+ const notes = useSelector(state => {
+  return notesApiSlice.endpoints.getNotes.select("notesList")(state).data;
+ })
+
+ const note = notes.entities[noteId];
 
  const navigate = useNavigate()
 

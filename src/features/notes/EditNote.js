@@ -7,7 +7,11 @@ import EditNoteForm from './EditNoteForm'
 const EditNote = () => {
  const { id } = useParams()
 
- const note = useSelector(state => selectNoteById(state, id))
+ const notes = useSelector(state => {
+  return notesApiSlice.endpoints.getNotes.select("notesList")(state).data;
+ })
+ const note = notes.entities[id];
+
  const users = useSelector(selectAllUsers)
 
  const content = note && users ? <EditNoteForm note={note} users={users} /> : <p>Loading...</p>
