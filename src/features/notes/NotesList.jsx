@@ -41,7 +41,7 @@ const NotesList = () => {
    filteredIds = ids.filter(noteId => entities[noteId].username === username)
   }
 
-  const tableContent = ids?.length && filteredIds.map(noteId => <Note key={noteId} noteId={noteId} />)
+  const tableContent = ids?.length !== 0 ? filteredIds.map(noteId => <Note key={noteId} noteId={noteId} />) : null;
 
   content = (
    <main>
