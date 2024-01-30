@@ -6,7 +6,7 @@ import { memo } from 'react'
 
 const Note = ({ noteId }) => {
 
- const { note } = useGetNotesQuery("notesList", {
+ const { note } = useGetNotesQuery("prefetchedNotesList", {
   selectFromResult: ({ data }) => ({
    note: data?.entities[noteId]
   }),

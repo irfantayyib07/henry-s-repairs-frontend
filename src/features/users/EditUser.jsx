@@ -9,7 +9,7 @@ const EditUser = () => {
 
  const { id } = useParams()
 
- const { user } = useGetUsersQuery("usersList", {
+ const { user } = useGetUsersQuery("prefetchedUsersList", {
   selectFromResult: ({ data }) => ({
    user: data?.entities[id]
   }),

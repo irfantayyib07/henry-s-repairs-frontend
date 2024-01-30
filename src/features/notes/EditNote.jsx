@@ -13,13 +13,13 @@ const EditNote = () => {
 
  const { username, isManager, isAdmin } = useAuth()
 
- const { note } = useGetNotesQuery("notesList", {
+ const { note } = useGetNotesQuery("prefetchedNotesList", {
   selectFromResult: ({ data }) => ({
    note: data?.entities[id]
   }),
  })
 
- const { users } = useGetUsersQuery("usersList", {
+ const { users } = useGetUsersQuery("prefetchedUsersList", {
   selectFromResult: ({ data }) => ({
    users: data?.ids.map(id => data?.entities[id])
   }),
