@@ -58,6 +58,7 @@ const EditNoteForm = ({ note, users }) => {
  const onDeleteNoteClicked = async (e) => {
   e.target.closest("button").disabled = true;
   await deleteNote(note.id)
+  navigate("/dash/notes");
  }
 
  const created = new Date(note.createdAt).toLocaleString('en-US', { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' })
