@@ -11,7 +11,7 @@ const Prefetch = () => {
 
  useEffect(() => {
   store.dispatch(notesApiSlice.util.prefetch('getNotes', "prefetchedNotesList", { force: true }))
-  store.dispatch(usersApiSlice.util.prefetch('getUsers', 'usersList', { force: true }))
+  store.dispatch(usersApiSlice.util.prefetch('getUsers', "prefetchedUsersList", { force: true }))
  }, [])
 
  return (

@@ -19,7 +19,7 @@ const EditNote = () => {
   }),
  })
 
- const { users } = useGetUsersQuery("usersList", {
+ const { users } = useGetUsersQuery("prefetchedUsersList", {
   selectFromResult: ({ data }) => ({
    users: data?.ids.map(id => data?.entities[id])
   }),

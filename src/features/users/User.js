@@ -6,7 +6,7 @@ import { memo } from 'react'
 
 const User = ({ userId }) => {
 
- const { user } = useGetUsersQuery("usersList", {
+ const { user } = useGetUsersQuery("prefetchedUsersList", {
   selectFromResult: ({ data }) => ({
    user: data?.entities[userId]
   }),
