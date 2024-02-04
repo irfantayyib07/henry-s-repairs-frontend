@@ -14,8 +14,8 @@ const Login = () => {
 
  const userRef = useRef()
  const errRef = useRef()
- const [username, setUsername] = useState('')
- const [password, setPassword] = useState('')
+ const [username, setUsername] = useState('admin')
+ const [password, setPassword] = useState('Admin@22')
  const [errMsg, setErrMsg] = useState('')
  const [persist, setPersist] = usePersist()
 
