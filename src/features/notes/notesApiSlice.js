@@ -18,10 +18,12 @@ export const notesApiSlice = apiSlice.injectEndpoints({
    }),
    transformResponse: (responseData) => {
     if (!Array.isArray(responseData)) return notesAdapter.setAll(initialState, []);
+
     const loadedNotes = responseData.map((note) => {
      note.id = note._id;
      return note;
     });
+
     return notesAdapter.setAll(initialState, loadedNotes);
    },
    providesTags: (result, error, arg) => {
