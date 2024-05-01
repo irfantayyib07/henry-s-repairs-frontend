@@ -18,9 +18,21 @@ const useAuth = () => {
   if (isManager) status = "Manager";
   if (isAdmin) status = "Admin";
 
-  return { username, roles, status, isManager, isAdmin };
+  return {
+   username,
+   roles,
+   status,
+   isManager,
+   isAdmin,
+  };
  }
 
- return { username: "", roles: [], isManager, isAdmin, status };
+ return {
+  username: "",
+  roles: [],
+  isManager,
+  isAdmin,
+  status,
+ };
 };
 export default useAuth;

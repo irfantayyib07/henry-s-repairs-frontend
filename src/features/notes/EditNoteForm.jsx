@@ -42,7 +42,13 @@ const EditNoteForm = ({ note, users }) => {
 
  const onSaveNoteClicked = async (e) => {
   if (canSave) {
-   await updateNote({ id: note.id, user: userId, title, text, completed });
+   await updateNote({
+    id: note.id,
+    user: userId,
+    title,
+    text,
+    completed,
+   });
   }
  };
 

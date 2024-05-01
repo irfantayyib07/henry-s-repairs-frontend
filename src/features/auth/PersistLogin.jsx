@@ -8,7 +8,9 @@ import PulseLoader from "react-spinners/PulseLoader";
 
 const PersistLogin = () => {
  const [persist] = usePersist();
+
  const token = useSelector(selectCurrentToken);
+
  const effectRan = useRef(false);
 
  const [trueSuccess, setTrueSuccess] = useState(false);
@@ -18,13 +20,9 @@ const PersistLogin = () => {
  useEffect(() => {
   if (effectRan.current === true || process.env.NODE_ENV !== "development") {
    // React 18 Strict Mode
-
    const verifyRefreshToken = async () => {
-    // console.log('verifying refresh token')
     try {
-     //const response =
      await refresh();
-     //const { accessToken } = response.data
      setTrueSuccess(true);
     } catch (err) {
      console.error(err);
@@ -35,27 +33,27 @@ const PersistLogin = () => {
   }
 
   return () => (effectRan.current = true);
-
-  // eslint-disable-next-line
  }, []);
 
  let content;
  if (!persist) {
   // persist: no
-  // console.log('no persist')
   content = <Outlet />;
  } else if (isLoading) {
-  //persist: yes, token: no
-  // console.log('loading')
+  // persist: yes, token: no
   content = (
    <PulseLoader
     color={"#000"}
-    cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, --50%)" }}
+    cssOverride={{
+     position: "absolute",
+     top: "50%",
+     left: "50%",
+     transform: "translate(-50%, --50%)",
+    }}
    />
   );
  } else if (isError) {
-  //persist: yes, token: no
-  // console.log('error')
+  // persist: yes, token: no
   content = (
    <p className="errmsg">
     {`${error?.data?.message} - `}
@@ -63,13 +61,10 @@ const PersistLogin = () => {
    </p>
   );
  } else if (isSuccess && trueSuccess) {
-  //persist: yes, token: yes
-  // console.log('success')
+  // persist: yes, token: yes
   content = <Outlet />;
  } else if (token && isUninitialized) {
-  //persist: yes, token: yes
-  // console.log('token and uninit')
-  // console.log(isUninitialized)
+  // persist: yes, token: yes
   content = <Outlet />;
  }
 

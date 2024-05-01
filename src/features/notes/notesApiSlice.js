@@ -26,7 +26,13 @@ export const notesApiSlice = apiSlice.injectEndpoints({
    },
    providesTags: (result, error, arg) => {
     if (result?.ids) {
-     return [{ type: "Note", id: "LIST" }, ...result.ids.map((id) => ({ type: "Note", id }))];
+     return [
+      { type: "Note", id: "LIST" },
+      ...result.ids.map((id) => ({
+       type: "Note",
+       id,
+      })),
+     ];
     } else return [{ type: "Note", id: "LIST" }];
    },
   }),

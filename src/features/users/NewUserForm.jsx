@@ -60,7 +60,11 @@ const NewUserForm = () => {
   e.preventDefault();
   if (canSave) {
    // console.log("I AM RUNNING");
-   await addNewUser({ username, password, roles });
+   await addNewUser({
+    username,
+    password,
+    roles,
+   });
   }
  };
 

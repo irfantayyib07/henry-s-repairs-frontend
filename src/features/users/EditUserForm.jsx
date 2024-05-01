@@ -56,9 +56,20 @@ const EditUserForm = ({ user }) => {
 
  const onSaveUserClicked = async (e) => {
   if (password) {
-   await updateUser({ id: user.id, username, password, roles, active });
+   await updateUser({
+    id: user.id,
+    username,
+    password,
+    roles,
+    active,
+   });
   } else {
-   await updateUser({ id: user.id, username, roles, active });
+   await updateUser({
+    id: user.id,
+    username,
+    roles,
+    active,
+   });
   }
  };
 
