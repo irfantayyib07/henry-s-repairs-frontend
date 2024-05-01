@@ -5,7 +5,7 @@
 .btn {
  display: block;
  width: fit-content;
- padding: .75rem 1rem;
+ padding: 0.75rem 1rem;
  outline: 1px solid $accent-color;
  cursor: pointer;
  @include google-font("Montserrat");
@@ -44,7 +44,7 @@ button[disabled] {
  width: 35px;
  height: 35px;
 
- opacity: .5;
+ opacity: 0.5;
 }
 
 .offscreen {
@@ -57,7 +57,7 @@ button[disabled] {
  color: $accent-color;
 
  width: fit-content;
- padding: .75rem 1rem;
+ padding: 0.75rem 1rem;
 }
 
 .invalid-input {

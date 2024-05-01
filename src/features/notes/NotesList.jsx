@@ -1,47 +1,56 @@
-import { useGetNotesQuery } from "./notesApiSlice"
-import Note from "./Note"
-import useAuth from "../../hooks/useAuth"
-import useTitle from "../../hooks/useTitle"
-import PulseLoader from 'react-spinners/PulseLoader'
+import { useGetNotesQuery } from "./notesApiSlice";
+import Note from "./Note";
+import useAuth from "../../hooks/useAuth";
+import useTitle from "../../hooks/useTitle";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const NotesList = () => {
- useTitle('Henry S. Repairs: Notes List')
+ useTitle("Henry S. Repairs: Notes List");
 
- const { username, isManager, isAdmin } = useAuth()
+ const { username, isManager, isAdmin } = useAuth();
 
  const {
   data: notes,
   isLoading,
   isSuccess,
   isError,
-  error
- } = useGetNotesQuery('notesList', {
+  error,
+ } = useGetNotesQuery("notesList", {
   pollingInterval: 15000,
   refetchOnFocus: true,
-  refetchOnMountOrArgChange: true
- })
+  refetchOnMountOrArgChange: true,
+ });
 
- let content
+ let content;
 
- if (isLoading) content = <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
+ if (isLoading)
+  content = (
+   <PulseLoader
+    color={"#000"}
+    cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+   />
+  );
 
  if (isError) {
-  content = <main>
-   <p>{error?.data?.message}</p>
-  </main>
+  content = (
+   <main>
+    <p>{error?.data?.message}</p>
+   </main>
+  );
  }
 
  if (isSuccess) {
-  const { ids, entities } = notes
+  const { ids, entities } = notes;
 
-  let filteredIds
+  let filteredIds;
   if (isManager || isAdmin) {
-   filteredIds = [...ids]
+   filteredIds = [...ids];
   } else {
-   filteredIds = ids.filter(noteId => entities[noteId].username === username)
+   filteredIds = ids.filter((noteId) => entities[noteId].username === username);
   }
 
-  const tableContent = ids?.length !== 0 ? filteredIds.map(noteId => <Note key={noteId} noteId={noteId} />) : null;
+  const tableContent =
+   ids?.length !== 0 ? filteredIds.map((noteId) => <Note key={noteId} noteId={noteId} />) : null;
 
   content = (
    <main>
@@ -56,14 +65,12 @@ const NotesList = () => {
        <th scope="col">Edit</th>
       </tr>
      </thead>
-     <tbody>
-      {tableContent}
-     </tbody>
+     <tbody>{tableContent}</tbody>
     </table>
    </main>
-  )
+  );
  }
 
- return content
-}
-export default NotesList
+ return content;
+};
+export default NotesList;

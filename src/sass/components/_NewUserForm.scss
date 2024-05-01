@@ -4,7 +4,7 @@
 
  header {
   display: grid;
-  gap: .5rem;
+  gap: 0.5rem;
 
   button {
    border: 1px solid $accent-color;
@@ -21,8 +21,8 @@
   input {
    display: block;
    border: 1px solid $accent-color;
-   
-   padding: .5rem;
+
+   padding: 0.5rem;
    background-color: transparent;
 
    font-family: unset;
@@ -44,7 +44,7 @@
 
   select {
    background-color: unset;
-   padding: .5rem;
+   padding: 0.5rem;
 
    font-family: "Montserrat";
    font-size: 1rem;

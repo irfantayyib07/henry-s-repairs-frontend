@@ -1,17 +1,17 @@
-.dash-layout>header {
+.dash-layout > header {
  display: flex;
  flex-wrap: wrap;
  align-items: center;
  justify-content: space-between;
 
- padding: .25rem clamp(1rem, 10vw, 6rem);
+ padding: 0.25rem clamp(1rem, 10vw, 6rem);
 
  background-color: $secondary-color;
  color: $primary-color;
 
- h1>a {
+ h1 > a {
   &:hover {
-   opacity: .7;
+   opacity: 0.7;
   }
 
   &:focus {

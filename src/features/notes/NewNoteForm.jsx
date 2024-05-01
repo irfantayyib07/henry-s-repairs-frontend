@@ -1,58 +1,55 @@
-import { useState, useEffect, useRef } from "react"
-import { useNavigate } from "react-router-dom"
-import { useAddNewNoteMutation } from "./notesApiSlice"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSave } from "@fortawesome/free-solid-svg-icons"
+import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAddNewNoteMutation } from "./notesApiSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSave } from "@fortawesome/free-solid-svg-icons";
 
 const NewNoteForm = ({ users }) => {
  const toBeFocused = useRef();
 
- const [addNewNote, {
-  isLoading,
-  isSuccess,
-  isError,
-  error
- }] = useAddNewNoteMutation()
+ const [addNewNote, { isLoading, isSuccess, isError, error }] = useAddNewNoteMutation();
 
- const navigate = useNavigate()
+ const navigate = useNavigate();
 
- const [title, setTitle] = useState('')
- const [text, setText] = useState('')
- const [userId, setUserId] = useState(users[0].id)
+ const [title, setTitle] = useState("");
+ const [text, setText] = useState("");
+ const [userId, setUserId] = useState(users[0].id);
 
  useEffect(() => {
   toBeFocused.current.focus();
 
   if (isSuccess) {
-   setTitle('')
-   setText('')
-   setUserId('')
-   navigate('/dash/notes')
+   setTitle("");
+   setText("");
+   setUserId("");
+   navigate("/dash/notes");
   }
- }, [isSuccess, navigate])
+ }, [isSuccess, navigate]);
 
- const onTitleChanged = e => setTitle(e.target.value)
- const onTextChanged = e => setText(e.target.value)
- const onUserIdChanged = e => setUserId(e.target.value)
+ const onTitleChanged = (e) => setTitle(e.target.value);
+ const onTextChanged = (e) => setText(e.target.value);
+ const onUserIdChanged = (e) => setUserId(e.target.value);
 
- const canSave = [title, text, userId].every(Boolean) && !isLoading
+ const canSave = [title, text, userId].every(Boolean) && !isLoading;
 
  const onSaveNoteClicked = async (e) => {
-  e.preventDefault()
+  e.preventDefault();
   if (canSave) {
-   await addNewNote({ user: userId, title, text })
+   await addNewNote({ user: userId, title, text });
   }
- }
+ };
 
- const options = users.map(user => {
+ const options = users.map((user) => {
   return (
-   <option key={user.id} value={user.id}>{user.username}</option >
-  )
- })
+   <option key={user.id} value={user.id}>
+    {user.username}
+   </option>
+  );
+ });
 
- const errClass = isError ? "errmsg" : "offscreen"
- const validTitleClass = !title ? "invalid-input" : ''
- const validTextClass = !text ? "invalid-input" : ''
+ const errClass = isError ? "errmsg" : "offscreen";
+ const validTitleClass = !title ? "invalid-input" : "";
+ const validTextClass = !text ? "invalid-input" : "";
 
  return (
   <>
@@ -60,7 +57,9 @@ const NewNoteForm = ({ users }) => {
     <p className={errClass}>{error?.data?.message}</p>
     <header>
      <h2>New Note</h2>
-     <button title="Save" disabled={!canSave}><FontAwesomeIcon icon={faSave} /></button>
+     <button title="Save" disabled={!canSave}>
+      <FontAwesomeIcon icon={faSave} />
+     </button>
     </header>
 
     <div className="title-input-joiner">
@@ -90,7 +89,7 @@ const NewNoteForm = ({ users }) => {
     </div>
    </form>
   </>
- )
-}
+ );
+};
 
-export default NewNoteForm
+export default NewNoteForm;

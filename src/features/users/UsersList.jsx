@@ -1,36 +1,42 @@
-import { useGetUsersQuery } from "./usersApiSlice"
-import User from './User'
-import useTitle from "../../hooks/useTitle"
-import PulseLoader from 'react-spinners/PulseLoader'
+import { useGetUsersQuery } from "./usersApiSlice";
+import User from "./User";
+import useTitle from "../../hooks/useTitle";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const UsersList = () => {
- useTitle('Henry S. Repairs: Users List')
+ useTitle("Henry S. Repairs: Users List");
 
  const {
   data: users,
   isLoading,
   isSuccess,
   isError,
-  error
- } = useGetUsersQuery('usersList', { // "usersList" is kind of a cache key? (used in EditUser.js and User.js)
+  error,
+ } = useGetUsersQuery("usersList", {
+  // "usersList" is kind of a cache key? (used in EditUser.js and User.js)
   pollingInterval: 60000,
   refetchOnFocus: true,
-  refetchOnMountOrArgChange: true
- })
+  refetchOnMountOrArgChange: true,
+ });
 
  let content;
 
- if (isLoading) content = <PulseLoader color={"#000"} cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
+ if (isLoading)
+  content = (
+   <PulseLoader
+    color={"#000"}
+    cssOverride={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+   />
+  );
 
  if (isError) {
-  content = <p className="errmsg">{error?.data?.message}</p>
+  content = <p className="errmsg">{error?.data?.message}</p>;
  }
 
  if (isSuccess) {
+  const { ids } = users;
 
-  const { ids } = users
-
-  const tableContent = ids?.length && ids.map(userId => <User key={userId} userId={userId} />)
+  const tableContent = ids?.length && ids.map((userId) => <User key={userId} userId={userId} />);
 
   content = (
    <main>
@@ -42,14 +48,12 @@ const UsersList = () => {
        <th scope="col">Edit</th>
       </tr>
      </thead>
-     <tbody>
-      {tableContent}
-     </tbody>
+     <tbody>{tableContent}</tbody>
     </table>
    </main>
-  )
+  );
  }
 
- return content
-}
-export default UsersList
+ return content;
+};
+export default UsersList;

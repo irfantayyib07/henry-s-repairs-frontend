@@ -22,7 +22,6 @@ function App() {
  return (
   <Routes>
    <Route path="/" element={<Layout />}>
-
     {/* public routes */}
     <Route index element={<Public />} />
     <Route path="login" element={<Login />} />
@@ -31,7 +30,6 @@ function App() {
     <Route element={<PersistLogin />}>
      <Route element={<RequireAuth allowedRoles={[...Object.values(ROLES)]} />}>
       <Route element={<Prefetch />}>
-
        <Route path="dash" element={<DashLayout />}>
         <Route index element={<Welcome />} />
 
@@ -49,13 +47,11 @@ function App() {
          <Route path="new" element={<NewNote />} />
         </Route>
        </Route>
-
       </Route>
      </Route>
     </Route>
-
    </Route>
-  </Routes >
+  </Routes>
  );
 }
 
