@@ -3,9 +3,9 @@ import useAuth from "../../hooks/useAuth";
 import useTitle from "../../hooks/useTitle";
 
 const Welcome = () => {
- useTitle(`Dashboard: ${username}`);
-
  const { username, isManager, isAdmin } = useAuth();
+
+ useTitle(`Dashboard: ${username}`);
 
  const date = new Date();
  const today = new Intl.DateTimeFormat("en-US", {

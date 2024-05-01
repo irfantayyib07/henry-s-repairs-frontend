@@ -36,11 +36,14 @@ const PersistLogin = () => {
  }, []);
 
  let content;
+
+ // persist: no
  if (!persist) {
-  // persist: no
   content = <Outlet />;
- } else if (isLoading) {
-  // persist: yes, token: no
+ }
+
+ // persist: yes, token: no
+ if (isLoading) {
   content = (
    <PulseLoader
     color={"#000"}
@@ -52,19 +55,25 @@ const PersistLogin = () => {
     }}
    />
   );
- } else if (isError) {
-  // persist: yes, token: no
+ }
+
+ // persist: yes, token: no
+ if (isError) {
   content = (
    <p className="errmsg">
     {`${error?.data?.message} - `}
     <Link to="/login">Please login again</Link>.
    </p>
   );
- } else if (isSuccess && trueSuccess) {
-  // persist: yes, token: yes
+ }
+
+ // persist: yes, token: yes
+ if (isSuccess && trueSuccess) {
   content = <Outlet />;
- } else if (token && isUninitialized) {
-  // persist: yes, token: yes
+ }
+
+ // persist: yes, token: yes
+ if (token && isUninitialized) {
   content = <Outlet />;
  }
 
